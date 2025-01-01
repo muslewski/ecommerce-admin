@@ -20,7 +20,7 @@ export default function Social({ callbackUrl }: SocialProps) {
   };
 
   return (
-    <div className="flex items-center w-full gap-x-2">
+    <div className="flex items-center w-full gap-4">
       <Button
         variant="outline"
         size="lg"

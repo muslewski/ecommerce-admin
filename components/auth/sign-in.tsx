@@ -5,9 +5,9 @@ import AlertError from "@/components/alert-error";
 import AlertSuccess from "@/components/alert-success";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface SignInProps {
   callbackUrl: string;
@@ -27,6 +27,8 @@ export default function SignIn({ callbackUrl }: SignInProps) {
       return;
     }
 
+    setError(null);
+    setSuccess(null);
     setIsLoading(true);
 
     try {
@@ -49,11 +51,22 @@ export default function SignIn({ callbackUrl }: SignInProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <Label htmlFor="email" className="text-muted-foreground">
+        No password, no hassle. Just your email for secure, instant access.
+      </Label>
+
       <Input
         id="email"
+        className={clsx(
+          error && !email && "border-destructive placeholder-destructive"
+        )}
         type="email"
         name="email"
-        placeholder="tylerdurden@example.com"
+        placeholder={
+          error && !email
+            ? "Enter your email here..."
+            : "tylerdurden@example.com"
+        }
         value={email}
         onChange={(event) => {
           setEmail(event.target.value);

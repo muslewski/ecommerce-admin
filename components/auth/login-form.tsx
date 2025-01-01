@@ -11,13 +11,13 @@ export const LoginForm = () => {
   const callbackUrl = searchParams.get("callbackUrl") || DEFAULT_LOGIN_REDIRECT;
 
   return (
-    <div className="max-w-xl">
+    <div className="max-w-xl mt-6 flex flex-col gap-9">
       <Social callbackUrl={callbackUrl} />
 
-      <div className="flex items-center justify-center w-full py-6">
-        <div className="flex-grow h-px bg-muted-foreground mx-4 rounded-full"></div>
-        <span className="px-4 text-muted-foreground font-medium">or</span>
-        <div className="flex-grow h-px bg-muted-foreground mx-4 rounded-full"></div>
+      <div className="flex items-center justify-center w-full">
+        <div className="flex-grow h-px bg-muted-foreground/15 mx-4 rounded-full"></div>
+        <span className="px-4 text-muted-foreground/30 font-medium">or</span>
+        <div className="flex-grow h-px bg-muted-foreground/15 mx-4 rounded-full"></div>
       </div>
 
       <SignIn callbackUrl={callbackUrl} />

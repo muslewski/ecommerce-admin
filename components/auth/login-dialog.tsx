@@ -6,6 +6,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogOverlay,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
@@ -34,8 +35,10 @@ export default function LoginDialog({
       <Dialog>
         <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
         <DialogContent className="transition">
-          <DialogTitle>Login</DialogTitle>
-          <DialogDescription>Sign in to your account</DialogDescription>
+          <DialogTitle>Let's Get Started</DialogTitle>
+          <DialogDescription>
+            Pick a sign-in method that works best for you:
+          </DialogDescription>
           <LoginForm />
         </DialogContent>
       </Dialog>
