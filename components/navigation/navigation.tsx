@@ -1,4 +1,4 @@
-import LoginButton from "@/components/auth/login-button";
+import LoginButton from "@/components/auth/login-dialog";
 import MyAccount from "@/components/navigation/my-account";
 import Searchbox from "@/components/navigation/searchbox";
 import { Button } from "@/components/ui/button";

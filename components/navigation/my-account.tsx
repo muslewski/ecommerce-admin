@@ -1,7 +1,7 @@
 "use client";
 
 import logout from "@/actions/logout";
-import LoginButton from "@/components/auth/login-button";
+import LoginDialog from "@/components/auth/login-dialog";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -22,9 +22,9 @@ export default function MyAccount() {
 
   if (!user) {
     return (
-      <LoginButton mode="modal" asChild>
+      <LoginDialog mode="modal" asChild>
         <Button>Login</Button>
-      </LoginButton>
+      </LoginDialog>
     );
   } else {
     return (

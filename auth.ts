@@ -18,4 +18,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/login",
     verifyRequest: "/login/verify",
   },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Prevent redirect to specific pages
+      if (url.startsWith(baseUrl)) {
+        return url; // Stay on the same page
+      }
+      return baseUrl; // Default redirect to homepage
+    },
+  },
 });
