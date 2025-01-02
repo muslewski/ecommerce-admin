@@ -6,6 +6,7 @@ import { ModalProvider } from "@/providers/modal-provider";
 import Navigation from "@/components/navigation/navigation";
 
 import "@/app/globals.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -27,6 +28,7 @@ export default async function RootLayout({
           <Navigation />
           {children}
         </SessionProvider>
+        <Toaster />
       </body>
     </html>
   );
