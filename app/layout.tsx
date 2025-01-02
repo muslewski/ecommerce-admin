@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
-import Navigation from "@/components/navigation/navigation";
-import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
+
+import { ModalProvider } from "@/providers/modal-provider";
+import Navigation from "@/components/navigation/navigation";
+
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -20,6 +23,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className="w-screen">
         <SessionProvider session={session}>
+          <ModalProvider />
           <Navigation />
           {children}
         </SessionProvider>
