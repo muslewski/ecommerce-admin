@@ -14,7 +14,7 @@ export default function LogoutButton({ children }: LogoutButtonProps) {
 
   const onClick = () => {
     logout();
-    update();
+    update(); // not working but is safe to keep
     reloadSession();
   };
 

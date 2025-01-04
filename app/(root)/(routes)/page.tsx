@@ -13,9 +13,6 @@ export default function SetupPage() {
     if (!isOpen) onOpen();
   }, [isOpen, onOpen]);
 
-  return (
-    <div className="p-4">
-      <button onClick={onOpen}>Open Modal</button>
-    </div>
-  );
+  // we don't want to render anything because the modal will be opened
+  return null;
 }

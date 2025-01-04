@@ -49,13 +49,28 @@ export const StoreModal = () => {
         body: JSON.stringify(values),
       });
 
+      if (!response.ok) {
+        toast.error(`Error: ${response.status} ${response.statusText}`);
+      }
+
       const data = await response.json();
 
-      toast.success("Store created successfully.");
+      // redirect to a store page with refresh
+      window.location.assign(`/${data.id}`);
+
+      // toast.success("Store created successfully.");
     } catch (error) {
       toast.error("Something went wrong.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Prevent form reload on enter key
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      form.handleSubmit(onSubmit)();
     }
   };
 
@@ -69,7 +84,10 @@ export const StoreModal = () => {
       <div>
         <div className="space-y-4 py-2 pb-4">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              onKeyDown={handleKeyDown}
+            >
               <FormField
                 control={form.control}
                 name="name"

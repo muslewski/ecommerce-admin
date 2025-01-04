@@ -9,11 +9,9 @@ export async function POST(req: Request) {
     // Get currently authenticated user
     const user = await currentUser();
     const userId = user?.id;
-    console.log("[STORES_POST] userID:", userId);
 
     //  Get body from request
     const body = await req.json();
-    console.log("[STORES_POST] body:", body);
     const { name } = body;
 
     // Check if user is authenticated
@@ -33,8 +31,6 @@ export async function POST(req: Request) {
         userId,
       },
     });
-
-    console.log("[STORES_POST] store:", store);
 
     // Return the created store as JSON response
     return NextResponse.json(store);
